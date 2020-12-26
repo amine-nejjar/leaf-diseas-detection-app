@@ -1,5 +1,6 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity,Image} from 'react-native'
+import CardChoice from '../../shared/cardChoice'
 class HomeScreen extends React.Component{
     constructor(){
         super();
@@ -10,6 +11,9 @@ class HomeScreen extends React.Component{
         return (
             <View style={styles.container}>
             <Text>Home Screen</Text>
+                <View style={styles.logoContainer}>
+                    <Image style={styles.logoStyle} resizeMode='contain' source={require('../../../assets/logo.png')} />
+                </View>            
             </View>
             
           );
@@ -19,7 +23,14 @@ const styles = StyleSheet.create({
     container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent:'center'
+    backgroundColor:'#fff'
+    },
+    logoStyle:{
+        width:'85%',
+    },
+    logoContainer:{
+        justifyContent:'center',
+        alignItems:'center'
     },
 
 });

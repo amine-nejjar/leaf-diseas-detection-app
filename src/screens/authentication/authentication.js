@@ -12,10 +12,12 @@ class AuthenticationScreen extends React.Component{
     login = ()=> {
         //replace pour ne pas avoir la possibilité de retourner en arriere depuis la page home
         this.setState({isLoading:true})
+        // setTimeout(() =>{
+        //     this.setState({isLoading:false});this.props.navigation.dispatch(StackActions.replace('HomeScreen'));}
+        //     , 1000);
         setTimeout(() =>{
-            this.setState({isLoading:false});this.props.navigation.dispatch(StackActions.replace('HomeScreen'));}
+            this.setState({isLoading:false});this.props.navigation.navigate('HomeScreen');}
             , 1000);
-        
     }
     render(){
         return (
