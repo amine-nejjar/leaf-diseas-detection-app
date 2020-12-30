@@ -1,36 +1,44 @@
 import React from 'react'
 import {View, Text, StyleSheet, TouchableOpacity,Image} from 'react-native'
+import CostumPicker from '../../shared/costumPicker'
 class HomeScreen extends React.Component{
     constructor(){
         super();
+        this.state={
+            isVisible1:false,
+            isVisible2:false,
+            pickedUri:""
+        }
     }
-  
-
+    openChose = (chosen) => {
+        this.setState({isVisible1:true})
+    }
     render(){
         return (
             <View style={styles.container}>
                 <View style={styles.top}>
+                        <Text style={styles.title}>Choisir le type que vous voulez analyser</Text>
                 </View>
                 <View style={styles.middle}>
                     <View style={styles.row}>
-                        <TouchableOpacity style={styles.choiceCard}>
+                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("tomato")}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/tomato.png')}/>
                             <Text style={styles.fruiteName}>Tomates</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.choiceCard}>
+                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("potato")}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/potato.png')}/>
                             <Text style={styles.fruiteName}>Pommes de terre</Text>
                             <Text style={styles.featureText}>(Analyses les bacteries)</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
-                        <TouchableOpacity style={styles.choiceCard}>
+                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("papper")}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/bell-pepper.png')}/>
                             <Text style={styles.fruiteName}>Poivrons</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.choiceCard}>
+                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("blueberry")}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/blueberry.png')}/>
                             <Text style={styles.fruiteName}>Myrtille</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
@@ -40,7 +48,7 @@ class HomeScreen extends React.Component{
                 <View style={styles.bottom}>
 
                 </View>
-                
+                <CostumPicker visible={this.state.isVisible1} close={()=>this.setState({isVisible1:false})}/>
             </View>
             
           );
@@ -53,13 +61,16 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     top:{
-        flex:1,
+        flex:2,
+        justifyContent:'center',
+        alignItems:'center',
+        paddingHorizontal:10
     },
     middle:{
         flex:3,
     },
     bottom:{
-        flex:2
+        flex:1
     },
     row:{
         flex:1,
@@ -85,6 +96,10 @@ const styles = StyleSheet.create({
         fontSize:10,
         textAlign:'center',
         color:'#545556'
+    },
+    title:{
+        fontSize:25,
+        textAlign:'center'
     }
 
 });
