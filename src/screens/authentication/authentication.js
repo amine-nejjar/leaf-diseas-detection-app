@@ -19,6 +19,9 @@ class AuthenticationScreen extends React.Component{
             this.setState({isLoading:false});this.props.navigation.navigate('HomeScreen');}
             , 1000);
     }
+    goToRegister=()=>{
+        this.props.navigation.navigate("RegisterScreen")
+    } 
     render(){
         return (
             <View style={styles.container}>
@@ -33,7 +36,7 @@ class AuthenticationScreen extends React.Component{
                         </View>
                         <Divider style={styles.divider}/>
                         <View style={styles.footerContainer}>
-                            <Text> vous n'avez pas de compte ? <Text onPress={()=>console.log("inscrire")} style={styles.register}>S'INSCRIRE</Text></Text>
+                            <Text> vous n'avez pas de compte ? <Text onPress={this.goToRegister} style={styles.register}>S'INSCRIRE</Text></Text>
                         </View>                     
             </View>
           );
