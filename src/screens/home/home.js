@@ -19,32 +19,33 @@ class HomeScreen extends React.Component{
                 <View style={styles.top}>
                         <Text style={styles.title}>Choisir le type que vous voulez analyser</Text>
                 </View>
-                <View style={styles.middle}>
+                <TouchableOpacity style={styles.middle}  onPress={()=> this.openChose("papper")}>
+                    <Text style={{alignSelf:'center'}}>Clicker pour commencer l'analyse</Text>
                     <View style={styles.row}>
-                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("tomato")}>
+                        <View style={styles.choiceCard}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/tomato.png')}/>
                             <Text style={styles.fruiteName}>Tomates</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("potato")}>
+                        </View>
+                        <View style={styles.choiceCard}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/potato.png')}/>
                             <Text style={styles.fruiteName}>Pommes de terre</Text>
                             <Text style={styles.featureText}>(Analyses les bacteries)</Text>
-                        </TouchableOpacity>
+                        </View>
                     </View>
                     <View style={styles.row}>
-                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("papper")}>
+                        <View style={styles.choiceCard}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/bell-pepper.png')}/>
                             <Text style={styles.fruiteName}>Poivrons</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.choiceCard} onPress={()=> this.openChose("blueberry")}>
+                        </View>
+                        <View style={styles.choiceCard}>
                             <Image style={styles.imageStyle} resizeMode='contain' source={require('../../../assets/blueberry.png')}/>
                             <Text style={styles.fruiteName}>Myrtille</Text>
                             <Text style={styles.featureText}>(Analyses pour virus mosaique, bacterie ...)</Text>
-                        </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.bottom}>
 
                 </View>
@@ -67,14 +68,16 @@ const styles = StyleSheet.create({
         paddingHorizontal:10
     },
     middle:{
-        flex:3,
+        flex:2,
+        backgroundColor:'#fff',
+        elevation:4
     },
     bottom:{
-        flex:1
+        flex:2
     },
     row:{
         flex:1,
-        width:"97%",
+        width:"80%",
         flexDirection:'row',
     },
     choiceCard:{
@@ -82,12 +85,12 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flex:1,
         margin:5,
-        backgroundColor:'#fff',
-        elevation:5
+        // backgroundColor:'#fff',
+        // elevation:5
     },
     imageStyle:{
-        width:"90%",
-        height:"35%"
+        width:"60%",
+        height:"30%"
     },
     fruiteName:{
         color:'#0a4f00',
